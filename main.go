@@ -40,7 +40,6 @@ func computeMessages() {
 
 		if err := json.Unmarshal(data, &traffic); err != nil {
 			log.Println(err)
-			return
 		}
 		broadcast <- traffic
 		time.Sleep(5 * time.Second)
