@@ -47,8 +47,7 @@ func computeMessages() {
 }
 
 func handleMessages() {
-	for {
-		msg := <-broadcast
+	for msg := range broadcast {
 		clientsMutex.Lock()
 		for client, addr := range clients {
 			err := client.WriteJSON(msg)
